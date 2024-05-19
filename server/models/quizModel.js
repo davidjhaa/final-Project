@@ -35,6 +35,12 @@ const quizSchema = new Schema(
             required: true,
             enum: ["Q&A", "poll"],
         },
+        optionType : {
+            type: String,
+            enum: ["text", "image", "text+image"], 
+            default: "text", 
+            required: true,
+        },
         timer: {
             type: Number,
             default : 0,
