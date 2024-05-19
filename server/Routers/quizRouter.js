@@ -6,9 +6,5 @@ quizRouter
     .route('/:id')
     .get(getQuiz)
 
-quizRouter
-    .route('/:id/:number')
-    .get(getQuiz)
-    post(postQuizAnswer)
 
 module.exports = quizRouter;

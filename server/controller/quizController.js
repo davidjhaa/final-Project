@@ -1,23 +1,22 @@
-const Quiz = require("../models/userModel");
+const Quiz = require("../models/quizModel");
 
-module.exports.getQuiz = async (req, res, next) => {
+const getQuiz = async (req, res, next) => {
     try {
-        let id = req.params.id;
-        let quizDetails = await Quiz.findById(id);
-        if (quizDetails) {
-          return res.json({
-            message: "quiz retrieved",
-            data: quizDetails,
-          });
-        } 
-        else {
-          return res.json({
-            message: "quiz not found",
-          });
-        }
+      const quizId = req.params.id;
+      const quizDetails = await Quiz.findById(quizId);
+
+      if (!quizDetails) {
+        return res.status(404).json({ message: 'Quiz not found' });
+      }
+  
+      res.json(quizDetails);
     } 
     catch (error) {
         next("error");
     }
 };
+
+module.exports = {
+  getQuiz,
+}
 

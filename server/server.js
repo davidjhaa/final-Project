@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const userRouter = require("./Routers/authRoute");
-const quizRouter = require("./Routers/quizRouter")
+const quizRouter = require("./Routers/quizRouter");
+
 
 require('dotenv').config()
 
@@ -32,23 +33,25 @@ app.use("/api/v1/auth", userRouter);
 app.use("/api/v1/quiz", quizRouter);
 
 
-// Create a new quiz with the timer field omitted
+// // Create a new quiz with the timer field omitted
 // const newQuiz = new Quiz({
 //   quizName: "Sample Quiz",
 //   quizType: "Q&A",
 //   questions: [
 //     {
+//       qNumber:1,
 //       qName: "What is the capital of France?",
 //       options: ["Paris", "Berlin", "Madrid", "Rome"],
 //       correctOption: "Paris"
 //     },
 //     {
+//       qNumber:2,
 //       qName: "The sky is blue.",
 //       options: ["True", "False"],
 //       correctOption: "True"
 //     }
 //   ],
-//   refUserId: new mongoose.Types.ObjectId("6647c82425461490aea61104") 
+//   refUserId: new mongoose.Types.ObjectId("6648bc840dd4514e9212df46") 
 // });
 
 // newQuiz.save().then(quiz => {
